@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - kernel-kit-config: 6.6.x-x86_64
+          - kernel-kit-config: 6.6.ov-x86_64
             image: debian:bookworm-slim
     steps:
       - uses: actions/checkout@v6
