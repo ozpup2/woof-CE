@@ -1,4 +1,4 @@
-name: kernel-kit-k6.12.t
+name: kernel-kit-k6.12t
 
 on:
   workflow_dispatch:
