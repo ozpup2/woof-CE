@@ -1,4 +1,4 @@
-name: dpup-kernel-t
+name: dpup-kernel
 
 on:
   workflow_dispatch:
