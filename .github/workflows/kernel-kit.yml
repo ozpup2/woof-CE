@@ -13,8 +13,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - kernel-kit-config: 6.12.t-x86_64
-            image: debian:trixie-slim
           - kernel-kit-config: 6.18.t-x86_64
             image: debian:trixie-slim
     steps:
