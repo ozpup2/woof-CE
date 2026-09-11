@@ -53,7 +53,7 @@ jobs:
           rm -rf linux-$ver
           md5sum sources/kernels/linux-$ver.tar.xz | sed s~sources/kernels/~~ > sources/kernels/linux-$ver.tar.xz.md5.txt
           echo "DOTconfig_file=configs_${{ matrix.arch }}/DOTconfig-$ver-${{ matrix.arch }}" >> build.conf
-          echo "kernel_ver=$ver" >> build.conf
+          echo "kernel_ver=6.12.49" >> build.conf
           echo "package_name_suffix=kernel-kit" >> build.conf
           echo "COMP=\"-comp zstd -Xcompression-level 19 -b 256K -no-exports -no-xattrs\"" >> build.conf
           echo "fware=n" >> build.conf
