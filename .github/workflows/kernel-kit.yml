@@ -1,8 +1,7 @@
 name: kernel-kit
 
 on:
-  schedule:
-          workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
