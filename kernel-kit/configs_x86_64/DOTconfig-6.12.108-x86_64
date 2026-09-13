@@ -9330,7 +9330,7 @@ CONFIG_SECURITYFS=y
 CONFIG_DEFAULT_SECURITY_DAC=y
 
 CONFIG_SECURITY_LANDLOCK=y
-CONFIG_LSM="landlock"
+CONFIG_LSM="landlock,lockdown,yama,loadpin,safesetid,integrity,bpf"
 
 #
 # Kernel hardening options
