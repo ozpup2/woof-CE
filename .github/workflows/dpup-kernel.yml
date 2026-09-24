@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     if: github.event_name != 'schedule' || (github.repository == 'puppylinux-woof-CE/woof-CE' && github.ref == 'refs/heads/testing')
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     container:
       image: debian:${{ matrix.release }}-slim
       volumes:
@@ -15,6 +15,12 @@ jobs:
     strategy:
       matrix:
         include:
+          - release: bullseye
+            arch: x86_64
+            base: config.amd64_none_amd64.xz
+          - release: bookworm
+            arch: x86_64
+            base: config.amd64_none_amd64.xz
           - release: trixie
             arch: x86_64
             base: config.amd64_none_amd64.xz
