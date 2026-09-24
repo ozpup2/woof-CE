@@ -14,7 +14,7 @@ jobs:
       matrix:
         include:
           - kernel-kit-config: 6.6.an-x86_64
-            image: debian:bullseye-slim
+            image: debian:bookworm-slim
     steps:
       - uses: actions/checkout@v6
       - name: Install dependencies
