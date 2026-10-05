@@ -1,8 +1,6 @@
 name: kernel-kit-k6.1
 
 on:
-  schedule:
-    - cron: '0 0 1,15 * *'
   workflow_dispatch:
 
 jobs:
@@ -40,13 +38,13 @@ jobs:
         with:
           name: kernel-kit-output-${{ matrix.kernel-kit-config }}
           path: kernel-kit/small-output
-          retention-days: 16
+          retention-days: 7
   usrmerge:
     if: github.event_name != 'schedule' || (github.repository == 'puppylinux-woof-CE/woof-CE' && github.ref == 'refs/heads/testing')
     needs: build
     runs-on: ubuntu-22.04
     container:
-      image: debian:bullseye-slim
+      image: debian:bookworm-slim
     continue-on-error: true
     strategy:
       matrix:
@@ -71,4 +69,4 @@ jobs:
         with:
           name: kernel-kit-output-usrmerge-${{ matrix.kernel-kit-config }}
           path: kernel-kit/output
-          retention-days: 16
+          retention-days: 7
