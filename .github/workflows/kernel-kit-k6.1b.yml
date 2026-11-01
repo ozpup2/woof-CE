@@ -37,34 +37,7 @@ jobs:
           name: kernel-kit-output-${{ matrix.kernel-kit-config }}
           path: kernel-kit/small-output
           retention-days: 7
-  usrmerge:
-    if: github.event_name != 'schedule' || (github.repository == 'puppylinux-woof-CE/woof-CE' && github.ref == 'refs/heads/testing')
-    needs: build
-    runs-on: ubuntu-22.04
-    container:
-      image: debian:bookworm-slim
-    continue-on-error: true
-    strategy:
-      matrix:
-        kernel-kit-config: [6.1.b-x86_64]
-    steps:
-      - uses: actions/checkout@v6
-      - name: Install dependencies
-        run: |
-          apt-get update -qq
-          apt-get install -y --no-install-recommends squashfs-tools bzip2
-      - name: Get build output
-        uses: actions/download-artifact@v8
-        with:
-          name: kernel-kit-output-${{ matrix.kernel-kit-config }}
-          path: kernel-kit/output
-      - name: Repackage kernel
-        run: |
-          cd kernel-kit
-          ./usrmerge.sh
-      - name: Upload kernel
-        uses: actions/upload-artifact@v7
-        with:
+          with:
           name: kernel-kit-output-usrmerge-${{ matrix.kernel-kit-config }}
           path: kernel-kit/output
           retention-days: 7
